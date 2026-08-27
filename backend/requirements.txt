@@ -15,3 +15,5 @@ django-filter
 python-decouple
 gunicorn 
 whitenoise
+
+dj-database-url
