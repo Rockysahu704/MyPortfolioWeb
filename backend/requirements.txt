@@ -1,0 +1,17 @@
+Django
+djangorestframework
+psycopg
+# Now install the PostgreSQL driver:
+psycopg[binary]
+django-cors-headers
+python-dotenv
+Pillow
+gunicorn
+pytest
+pytest-django
+
+djangorestframework-simplejwt
+django-filter
+python-decouple
+gunicorn 
+whitenoise
