@@ -1,26 +1,75 @@
+import "../App.css"
+
 function About() {
     return (
         <section id="about" className="about-section">
 
             <div className="about-content">
 
+                <p className="section-subtitle">
+                    Get To Know More
+                </p>
+
                 <h2>About Me</h2>
 
-                <p>
-                    I am a Python Full Stack Developer with an
-                    interest in building web applications and
-                    solving real-world problems.
-                </p>
+                <div className="about-intro">
 
-                <p>
-                    I work with Python, Django, Django REST Framework,
-                    React, PostgreSQL, HTML, CSS, and JavaScript.
-                </p>
+                    <div className="about-text">
 
-                <p>
-                    I enjoy learning new technologies and building
-                    projects that help me improve my development skills.
-                </p>
+                        <p>
+                            I'm a passionate developer with a strong
+                            interest in building modern, scalable, and
+                            user-friendly applications.
+                        </p>
+
+                        <p>
+                            My primary focus is Python Full Stack
+                            Development, where I work with technologies
+                            such as Python, Django, Django REST Framework,
+                            React, PostgreSQL, JavaScript, HTML, and CSS.
+                        </p>
+
+                        <p>
+                            Along with web development, I am also exploring
+                            AI/ML and Agentic AI. I enjoy learning how
+                            intelligent systems and AI-powered applications
+                            can solve real-world problems.
+                        </p>
+
+                    </div>
+
+                    <div className="about-highlights">
+
+                        <div className="highlight-card">
+                            <span>💻</span>
+                            <h3>Full Stack</h3>
+                            <p>
+                                Building complete web applications
+                                from frontend to backend.
+                            </p>
+                        </div>
+
+                        <div className="highlight-card">
+                            <span>🤖</span>
+                            <h3>AI & ML</h3>
+                            <p>
+                                Exploring machine learning and
+                                AI-powered applications.
+                            </p>
+                        </div>
+
+                        <div className="highlight-card">
+                            <span>🧠</span>
+                            <h3>Agentic AI</h3>
+                            <p>
+                                Learning to build intelligent
+                                AI agents and workflows.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 

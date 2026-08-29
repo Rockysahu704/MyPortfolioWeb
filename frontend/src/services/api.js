@@ -1,7 +1,7 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
-export async function getSkills() {
-    const response = await fetch(`${API_BASE_URL}/skills/`)
+export async function getSkills(username) {
+    const response = await fetch(`${API_BASE_URL}/portfolio/${username}/skills/`)
 
     if (!response.ok){
         throw new Error("Failed to fetch skills")
@@ -10,8 +10,8 @@ export async function getSkills() {
     return response.json()
 }
 
-export async function getProjects() {
-    const response = await fetch(`${API_BASE_URL}/projects/`)
+export async function getProjects(username) {
+    const response = await fetch(`${API_BASE_URL}/portfolio/${username}/projects/`)
 
     if (!response.ok){
         throw new Error("Failed to fetch projects")
@@ -19,8 +19,8 @@ export async function getProjects() {
     return response.json()
 }
 
-export async function sendContactMessage(contactData) {
-    const response = await fetch(`${API_BASE_URL}/contact/`,{
+export async function sendContactMessage(username,contactData) {
+    const response = await fetch(`${API_BASE_URL}/portfolio/${username}/contact/`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json",
@@ -37,8 +37,8 @@ export async function sendContactMessage(contactData) {
     return response.json()
 }
 
-export async function getEducation() {
-    const response = await fetch(`${API_BASE_URL}/education/`)
+export async function getEducation(username) {
+    const response = await fetch(`${API_BASE_URL}/portfolio/${username}/education/`)
 
     if (!response.ok){
         throw new Error("Failed to fetch education")
@@ -47,11 +47,24 @@ export async function getEducation() {
     return response.json()
 }
 
-export async function getExperience() {
-    const response = await fetch(`${API_BASE_URL}/experience/`)
+export async function getExperience(username) {
+    const response = await fetch(`${API_BASE_URL}/portfolio/${username}/experience/`)
 
     if (!response.ok) {
         throw new Error("Failed to fetch experience")
+    }
+
+    return response.json()
+}
+
+export async function getSocialMedia(username) {
+
+    const response = await fetch(
+        `${API_BASE_URL}/portfolio/${username}/social/`
+    )
+
+    if (!response.ok) {
+        throw new Error("Failed to fetch social media")
     }
 
     return response.json()
