@@ -9,6 +9,8 @@ class SocialMedia(models.Model):
         ("instagram", "Instagram"),
         ("facebook", "Facebook"),
         ("youtube", "YouTube"),
+        ("email", "Email"),
+        ("phone", "Phone"),
     ]
 
     platform = models.CharField(
@@ -17,7 +19,9 @@ class SocialMedia(models.Model):
         unique=True
     )
 
-    url = models.URLField()
+    url = models.URLField(
+         max_length=500
+    )
 
     is_active = models.BooleanField(
         default=True
