@@ -11,6 +11,6 @@ class SocialMediaSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "platform",
-            "url",
+            "link",
             "is_active",
         ]

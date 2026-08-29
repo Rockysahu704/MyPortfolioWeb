@@ -1,15 +1,32 @@
+from django.conf import settings
 from django.db import models
 
-# Create your models here.
 
 class Skill(models.Model):
-    name=models.CharField(
-        max_length=100,
-        unique=True
-        )
-    category=models.CharField(max_length=100)
-    proficiency=models.PositiveIntegerField()
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="skills"
+    )
+
+    name = models.CharField(
+        max_length=100
+    )
+
+    category = models.CharField(
+        max_length=100
+    )
+
+    proficiency = models.PositiveIntegerField()
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "name"],
+                name="unique_user_skill"
+            )
+        ]
 
     def __str__(self):
-        return self.name
-    
+        return f"{self.user.username} - {self.name}"
