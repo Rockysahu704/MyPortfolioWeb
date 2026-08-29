@@ -48,6 +48,12 @@ urlpatterns = [
     include("apps.contact.urls")
     ),
 
+    # Social Media API
+    path(
+        "api/v1/",
+        include("apps.social.urls")
+    ),
+
     re_path(
         r'^media/(?P<path>.*)$',
         serve,

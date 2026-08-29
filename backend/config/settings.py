@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'apps.education',
     'apps.contact',
     'apps.accounts',
+    'apps.social',
 ]
 
 MIDDLEWARE = [
