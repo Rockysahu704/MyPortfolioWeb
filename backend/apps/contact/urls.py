@@ -1,14 +1,20 @@
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
 from .views import ContactMessageViewSet
 
 
-router = DefaultRouter()
+contact_list = ContactMessageViewSet.as_view({
+    "get": "list",
+    "post": "create",
+})
 
-router.register(
-    "contact",
-    ContactMessageViewSet,
-    basename="contact"
-)
 
-urlpatterns = router.urls
+urlpatterns = [
+
+    path(
+        "portfolio/<str:username>/contact/",
+        contact_list,
+        name="portfolio-contact"
+    ),
+
+]

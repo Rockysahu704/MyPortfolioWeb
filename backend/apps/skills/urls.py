@@ -1,12 +1,17 @@
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 from .views import SkillViewSet
 
-router = DefaultRouter()
+skill_list = SkillViewSet.as_view({
+    "get": "list",
+})
 
-router.register(
-    "skills",
-    SkillViewSet,
-    basename="skill"
-)
 
-urlpatterns = router.urls
+urlpatterns = [
+
+    path(
+        "portfolio/<str:username>/skills/",
+        skill_list,
+        name="portfolio-skills"
+    ),
+
+]

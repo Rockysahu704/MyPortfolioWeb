@@ -1,14 +1,19 @@
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
 from .views import ProjectViewSet
 
 
-router = DefaultRouter()
+project_list = ProjectViewSet.as_view({
+    "get": "list",
+})
 
-router.register(
-    "projects",
-    ProjectViewSet,
-    basename="project"
-)
 
-urlpatterns = router.urls
+urlpatterns = [
+
+    path(
+        "portfolio/<str:username>/projects/",
+        project_list,
+        name="portfolio-projects"
+    ),
+
+]

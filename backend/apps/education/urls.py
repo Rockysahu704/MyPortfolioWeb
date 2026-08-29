@@ -1,14 +1,19 @@
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
 from .views import EducationViewSet
 
 
-router = DefaultRouter()
+education_list = EducationViewSet.as_view({
+    "get": "list",
+})
 
-router.register(
-    "education",
-    EducationViewSet,
-    basename="education"
-)
 
-urlpatterns = router.urls
+urlpatterns = [
+
+    path(
+        "portfolio/<str:username>/education/",
+        education_list,
+        name="portfolio-education"
+    ),
+
+]

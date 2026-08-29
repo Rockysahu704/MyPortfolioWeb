@@ -1,14 +1,27 @@
-from rest_framework.routers import DefaultRouter
+# from rest_framework.routers import DefaultRouter
+from django.urls import path
 
 from .views import SocialMediaViewSet
 
 
-router = DefaultRouter()
+# router = DefaultRouter()
 
-router.register(
-    "social",
-    SocialMediaViewSet,
-    basename="social"
-)
+social_list = SocialMediaViewSet.as_view({
+    "get":"list",
+})
 
-urlpatterns = router.urls
+# router.register(
+#     "social",
+#     SocialMediaViewSet,
+#     basename="social"
+# )
+
+urlpatterns = [
+    path(
+        "portfolio/<str:username>/social/",
+        social_list,
+        name="portfolio-social"
+
+    ),
+    
+]

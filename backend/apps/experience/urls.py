@@ -1,14 +1,19 @@
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
 from .views import ExperienceViewSet
 
 
-router = DefaultRouter()
+experience_list = ExperienceViewSet.as_view({
+    "get": "list",
+})
 
-router.register(
-    "experience",
-    ExperienceViewSet,
-    basename="experience"
-)
 
-urlpatterns = router.urls
+urlpatterns = [
+
+    path(
+        "portfolio/<str:username>/experience/",
+        experience_list,
+        name="portfolio-experience"
+    ),
+
+]
