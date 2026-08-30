@@ -795,3 +795,150 @@ section h2 {
     }
 
 }
+
+/* Skills */
+
+.skills-section {
+    padding: 100px 10%;
+    background: #202831;
+    min-height: 500px;
+}
+
+.skills-section h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+    font-size: 28px;
+}
+
+.skills-section h2 span {
+    color: #28c7d9;
+}
+
+.skills-grid {
+    max-width: 1000px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px 80px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.skill-icon {
+    width: 52px;
+    height: 52px;
+
+    border: 2px solid #bfc7d1;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+    overflow: hidden;
+
+    background: #28323d;
+}
+
+.skill-icon img {
+    width: 70%;
+    height: 70%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+.skill-info {
+    width: 100%;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 8px;
+
+    color: white;
+    font-size: 14px;
+}
+
+.skill-name {
+    font-weight: 500;
+}
+
+.skill-percentage {
+    color: #aab3bd;
+    font-size: 12px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+
+    background: #36414d;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+
+    background: #27c7d9;
+    border-radius: 10px;
+
+    transition: width 0.5s ease;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .skills-section {
+        padding: 70px 8%;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+
+/* Small mobile */
+
+@media (max-width: 480px) {
+
+    .skills-section {
+        padding: 60px 6%;
+    }
+
+    .skills-section h2 {
+        font-size: 24px;
+        margin-bottom: 35px;
+    }
+
+    .skill-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .skill-item {
+        gap: 12px;
+    }
+
+    .skill-header {
+        font-size: 13px;
+    }
+}

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { getSkills } from "../services/api"
 
+import "../App.css"
+
 
 function Skills({ username }) {
 
@@ -20,7 +22,7 @@ function Skills({ username }) {
             .catch((error) => {
 
                 console.error(
-                    "Error fetching skills: ",
+                    "Error fetching skills:",
                     error
                 )
 
@@ -40,39 +42,92 @@ function Skills({ username }) {
 
     return (
 
-        <section id="skills">
+        <section
+            id="skills"
+            className="skills-section"
+        >
 
-            <h2>My Skills</h2>
+            <h2>
+                My <span>Skills</span>
+            </h2>
 
-            {
-                loading ? (
 
-                    <p>Loading skills...</p>
+            {loading ? (
 
-                ) : error ? (
+                <p>Loading skills...</p>
 
-                    <p>{error}</p>
+            ) : error ? (
 
-                ) : skills.length === 0 ? (
+                <p>{error}</p>
 
-                    <p>No skills available.</p>
+            ) : skills.length === 0 ? (
 
-                ) : (
+                <p>No skills available.</p>
 
-                    <ul>
+            ) : (
 
-                        {skills.map((skill) => (
+                <div className="skills-grid">
 
-                            <li key={skill.id}>
-                                {skill.name}
-                            </li>
+                    {skills.map((skill) => (
 
-                        ))}
+                        <div
+                            className="skill-item"
+                            key={skill.id}
+                        >
 
-                    </ul>
+                            <div className="skill-icon">
 
-                )
-            }
+                                {skill.image ? (
+
+                                    <img
+                                        src={skill.image}
+                                        alt={skill.name}
+                                    />
+
+                                ) : (
+
+                                    <span>💻</span>
+
+                                )}
+
+                            </div>
+
+
+                            <div className="skill-info">
+
+                                <div className="skill-header">
+
+                                    <span>
+                                        {skill.name}
+                                    </span>
+
+                                    <span className="skill-percentage">
+                                        {skill.proficiency}%
+                                    </span>
+
+                                </div>
+
+
+                                <div className="progress-bar">
+
+                                    <div
+                                        className="progress-fill"
+                                        style={{
+                                            width: `${skill.proficiency}%`
+                                        }}
+                                    />
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    ))}
+
+                </div>
+
+            )}
 
         </section>
 
