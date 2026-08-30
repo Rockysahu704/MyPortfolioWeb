@@ -66,6 +66,10 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
 
+     # Cloudinary
+    'cloudinary',
+    'cloudinary_storage',
+
     'apps.projects',
     'apps.skills',
     'apps.experience',
@@ -77,6 +81,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,8 +91,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'corsheaders.middleware.CorsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -194,13 +199,66 @@ STATIC_URL = "/static/"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATICFILES_STORAGE = (
-    "whitenoise.storage.CompressedManifestStaticFilesStorage"
-)
+# STATICFILES_STORAGE = (
+#     "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# )
 
 # Media files
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+
+
+if DEBUG:
+
+    # =========================
+    # LOCAL DEVELOPMENT
+    # =========================
+
+    STORAGES = {
+
+        "default": {
+            "BACKEND": "django.core.files.storage.FileSystemStorage",
+        },
+
+        "staticfiles": {
+            "BACKEND": (
+                "whitenoise.storage.CompressedManifestStaticFilesStorage"
+            ),
+        },
+
+    }
+
+
+else:
+
+    # =========================
+    # PRODUCTION
+    # =========================
+
+    CLOUDINARY_STORAGE = {
+        "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME"),
+        "API_KEY": config("CLOUDINARY_API_KEY"),
+        "API_SECRET": config("CLOUDINARY_API_SECRET"),
+    }
+
+
+    STORAGES = {
+
+        "default": {
+            "BACKEND": (
+                "cloudinary_storage.storage.MediaCloudinaryStorage"
+            ),
+        },
+
+        "staticfiles": {
+            "BACKEND": (
+                "whitenoise.storage.CompressedManifestStaticFilesStorage"
+            ),
+        },
+
+    }
+
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
@@ -237,3 +295,4 @@ if not DEBUG:
         "HTTP_X_FORWARDED_PROTO",
         "https"
     )
+

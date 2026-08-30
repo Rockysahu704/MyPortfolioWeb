@@ -17,3 +17,7 @@ gunicorn
 whitenoise
 
 dj-database-url
+
+# For production image and video manager
+cloudinary 
+django-cloudinary-storage
