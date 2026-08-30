@@ -10,6 +10,7 @@ class SkillSerializer(serializers.ModelSerializer):
             "name",
             "category",
             "proficiency",
+            "image"
         ]
 
     def validate_name(self, value):

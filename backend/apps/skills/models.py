@@ -20,6 +20,12 @@ class Skill(models.Model):
 
     proficiency = models.PositiveIntegerField()
 
+    image = models.ImageField(
+        upload_to="skills/",
+        blank=True,
+        null=True
+    )
+
     class Meta:
         constraints = [
             models.UniqueConstraint(

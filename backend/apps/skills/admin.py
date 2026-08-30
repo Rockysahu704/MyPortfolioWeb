@@ -9,6 +9,7 @@ class SkillAdmin(admin.ModelAdmin):
         "name",
         "category",
         "proficiency",
+        "image",
     ]
 
     search_fields = [
