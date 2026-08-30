@@ -1,26 +1,49 @@
 import "../App.css"
+// import logo from "../assets/images/logo_dark_bg.png"
+
 function Navbar({ isDarkMode, toggleTheme }) {
     return (
         <nav className="navbar">
 
             <div className="nav-container">
 
-                <h2 className="logo">
-                    My Portfolio
-                </h2>
+                {/* Logo + Name */}
+                <a href="#about" className="brand">
 
-                 <div className="nav-right">
+                    {/* <img
+                        src={logo}
+                        alt="Rocky Sahu Logo"
+                        className="brand-logo"
+                    /> */}
 
-                        <div className="nav-links">
-                            <a href="#about">About</a>
-                            <a href="#skills">Skills</a>
-                            <a href="#projects">Projects</a>
-                            <a href="#experience">Experience</a>
-                            <a href="#education">Education</a>
-                            <a href="#contact">Contact</a>
-                        </div>
+                    <div className="brand-name">
+                        <span className="first-name">
+                            ROCKY
+                        </span>
 
-                      <button
+                        <span className="last-name">
+                            SAHU
+                        </span>
+                    </div>
+
+                </a>
+
+
+                <div className="nav-right">
+
+                    <div className="nav-links">
+
+                        <a href="#about">About</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#experience">Experience</a>
+                        <a href="#education">Education</a>
+                        <a href="#contact">Contact</a>
+
+                    </div>
+
+
+                    <button
                         className={`theme-toggle ${
                             isDarkMode ? "dark-toggle" : ""
                         }`}
@@ -32,10 +55,7 @@ function Navbar({ isDarkMode, toggleTheme }) {
                         </span>
                     </button>
 
-
-                 </div>
-
-             
+                </div>
 
             </div>
 
