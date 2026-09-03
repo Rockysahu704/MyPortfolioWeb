@@ -53,6 +53,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
     "https://rocky-sahu-portfolio.vercel.app",
     "https://rita-portfolio-three.vercel.app",
+    "http://localhost:3000",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False
